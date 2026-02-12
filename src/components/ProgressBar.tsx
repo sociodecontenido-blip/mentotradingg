@@ -1,4 +1,13 @@
+import { useEffect, useState } from "react";
+
 const ProgressBar = ({ percentage }: { percentage: number }) => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const t = setTimeout(() => setWidth(percentage), 80);
+    return () => clearTimeout(t);
+  }, [percentage]);
+
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="flex items-center justify-between mb-3">
@@ -9,8 +18,8 @@ const ProgressBar = ({ percentage }: { percentage: number }) => {
       </div>
       <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
         <div
-          className="h-full rounded-full bg-accent transition-all duration-700 ease-out"
-          style={{ width: `${percentage}%` }}
+          className="h-full rounded-full bg-accent transition-all duration-900 ease-out"
+          style={{ width: `${width}%` }}
         />
       </div>
     </div>
