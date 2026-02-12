@@ -1,20 +1,36 @@
+import { useEffect, useState } from "react";
 import ProgressBar from "@/components/ProgressBar";
 import StepCard from "@/components/StepCard";
 import ConfirmationStep from "@/components/ConfirmationStep";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 50);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="pt-16 pb-12 px-6">
         <div className="max-w-3xl mx-auto space-y-10">
           <ProgressBar percentage={80} />
-          <div className="text-center space-y-4 pt-4">
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+          <div className="relative text-center space-y-4 pt-4">
+            {/* Subtle radial halo */}
+            <div
+              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full"
+              style={{
+                background: 'radial-gradient(ellipse at center, hsl(215 50% 18% / 0.10) 0%, transparent 70%)',
+                filter: 'blur(60px)',
+              }}
+            />
+            <h1 className="relative text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
               Tu llamada esta casi confirmada
             </h1>
-            <p className="text-lg text-secondary-foreground max-w-xl mx-auto leading-relaxed">
+            <p className="relative text-lg text-secondary-foreground max-w-xl mx-auto leading-relaxed">
               Ya diste el primer paso. Para asegurar tu sesion, completa los siguientes pasos obligatorios.
             </p>
           </div>
@@ -24,24 +40,51 @@ const Index = () => {
       {/* Steps */}
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto space-y-10">
-          <StepCard
-            stepLabel="Paso 1 — Obligatorio"
-            title="Mira este video antes de tu sesion"
-            description="Aqui te explico como prepararte y que debes tener listo para aprovechar la llamada."
-            loomEmbedId="5245fc2da0df4aeaabead05f4b8ca52c"
-            footnote="No ver este video puede hacer que tu sesion sea cancelada."
-          />
+          <div
+            className="transition-all duration-300 ease-out"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(10px)',
+              transitionDelay: '0ms',
+            }}
+          >
+            <StepCard
+              stepLabel="Paso 1 — Obligatorio"
+              title="Mira este video antes de tu sesion"
+              description="Aqui te explico como prepararte y que debes tener listo para aprovechar la llamada."
+              loomEmbedId="5245fc2da0df4aeaabead05f4b8ca52c"
+              footnote="No ver este video puede hacer que tu sesion sea cancelada."
+            />
+          </div>
 
-          <StepCard
-            stepLabel="Paso 2 — Obligatorio"
-            title="Entiende como funciona el proceso"
-            description="En este video te explico exactamente como trabajamos y que esperamos de nuestros traders."
-            loomEmbedId="c10ee15dac854dd59e65b6fce068ac62"
-            footnote="Queremos asegurarnos de que esta oportunidad sea adecuada para ti."
-          />
+          <div
+            className="transition-all duration-300 ease-out"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(10px)',
+              transitionDelay: '100ms',
+            }}
+          >
+            <StepCard
+              stepLabel="Paso 2 — Obligatorio"
+              title="Entiende como funciona el proceso"
+              description="En este video te explico exactamente como trabajamos y que esperamos de nuestros traders."
+              loomEmbedId="c10ee15dac854dd59e65b6fce068ac62"
+              footnote="Queremos asegurarnos de que esta oportunidad sea adecuada para ti."
+            />
+          </div>
 
-          <div className="card-premium py-12">
-            <ConfirmationStep />
+          <div
+            className="transition-all duration-300 ease-out"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(10px)',
+              transitionDelay: '200ms',
+            }}
+          >
+            <div className="card-premium py-12">
+              <ConfirmationStep />
+            </div>
           </div>
         </div>
       </section>
