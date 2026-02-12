@@ -68,7 +68,7 @@ const Index = () => {
             <StepCard
               stepLabel="Paso 2 — Obligatorio"
               title="Entiende como funciona el proceso"
-              description="En este video te explico exactamente como trabajamos y que esperamos de nuestros traders."
+              description="En este video te explico exactamente como trabajo y que puedes esperar de este proceso"
               loomEmbedId="c10ee15dac854dd59e65b6fce068ac62"
               footnote="Queremos asegurarnos de que esta oportunidad sea adecuada para ti."
             />
