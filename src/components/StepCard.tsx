@@ -8,7 +8,7 @@ interface StepCardProps {
 
 const StepCard = ({ stepLabel, title, description, loomEmbedId, footnote }: StepCardProps) => {
   return (
-    <div className="card-premium space-y-6">
+    <div className="card-premium space-y-6 text-center md:text-left">
       <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">
         {stepLabel}
       </p>
