@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-"https://wa.me/5216651181605?text=Hola%20Gustavo,%20ya%20confirm%C3%A9%20mi%20llamada%20y%20mir%C3%A9%20ambos%20videos%20obligatorios.%20Quiero%20validar%20mi%20sesi%C3%B3n.%20Mi%20nombre%20es";
+"https://wa.me/5216632976748?text=Hola%20Gustavo,%20ya%20confirm%C3%A9%20mi%20llamada%20y%20mir%C3%A9%20ambos%20videos%20obligatorios.%20Quiero%20validar%20mi%20sesi%C3%B3n.%20Mi%20nombre%20es";
 
 const ConfirmationStep = () => {
   return (
