@@ -4,12 +4,12 @@ import ConfirmationStep from "@/components/ConfirmationStep";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
-  const { ref, isVisible } = useScrollReveal(0.1);
+const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
+  const { ref, isVisible } = useScrollReveal(0.08);
   return (
     <div
       ref={ref}
-      className={`scroll-reveal card-glow ${isVisible ? 'is-visible' : ''}`}
+      className={`scroll-reveal card-glow ${className} ${isVisible ? 'is-visible' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -20,27 +20,45 @@ const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode; dela
 const Index = () => {
   return (
     <div className="min-h-screen bg-background noise-overlay vignette relative">
-      {/* Ambient background gradients */}
+      {/* Cinematic ambient background */}
       <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Top hero glow */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]"
+          className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px]"
           style={{
-            background: 'radial-gradient(ellipse at center, hsl(215 50% 15% / 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, hsl(215 55% 18% / 0.14) 0%, hsl(215 50% 12% / 0.06) 40%, transparent 70%)',
             filter: 'blur(80px)',
           }}
         />
+        {/* Mid-left orb */}
         <div
-          className="absolute top-[60%] left-[20%] w-[600px] h-[400px]"
+          className="absolute top-[40%] left-[5%] w-[600px] h-[600px]"
           style={{
-            background: 'radial-gradient(ellipse at center, hsl(215 60% 20% / 0.05) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, hsl(215 65% 25% / 0.08) 0%, transparent 65%)',
             filter: 'blur(100px)',
           }}
         />
+        {/* Mid-right orb */}
         <div
-          className="absolute top-[30%] right-[10%] w-[500px] h-[500px]"
+          className="absolute top-[55%] right-[5%] w-[500px] h-[500px]"
           style={{
-            background: 'radial-gradient(ellipse at center, hsl(215 45% 18% / 0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, hsl(215 50% 22% / 0.07) 0%, transparent 65%)',
             filter: 'blur(90px)',
+          }}
+        />
+        {/* Bottom CTA glow */}
+        <div
+          className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[800px] h-[500px]"
+          style={{
+            background: 'radial-gradient(ellipse at center, hsl(215 60% 20% / 0.1) 0%, transparent 65%)',
+            filter: 'blur(100px)',
+          }}
+        />
+        {/* Subtle vertical gradient for depth */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, hsl(225 50% 4%) 0%, hsl(224 45% 5%) 30%, hsl(225 48% 4%) 70%, hsl(225 55% 3%) 100%)',
           }}
         />
       </div>
@@ -48,23 +66,23 @@ const Index = () => {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero */}
-        <section className="pt-20 pb-14 px-6">
-          <div className="max-w-3xl mx-auto space-y-12">
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-3xl mx-auto space-y-14">
             <ScrollReveal>
               <ProgressBar percentage={80} />
             </ScrollReveal>
 
-            <ScrollReveal delay={100}>
-              <div className="relative text-center space-y-5 pt-4">
+            <ScrollReveal delay={150}>
+              <div className="relative text-center space-y-6 pt-4">
                 {/* Hero halo */}
                 <div
-                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full"
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full"
                   style={{
-                    background: 'radial-gradient(ellipse at center, hsl(215 55% 20% / 0.12) 0%, transparent 70%)',
-                    filter: 'blur(70px)',
+                    background: 'radial-gradient(ellipse at center, hsl(215 60% 25% / 0.18) 0%, hsl(215 55% 18% / 0.06) 50%, transparent 75%)',
+                    filter: 'blur(60px)',
                   }}
                 />
-                <h1 className="relative text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+                <h1 className="relative text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.12]">
                   Tu llamada esta casi confirmada
                 </h1>
                 <p className="relative text-lg text-secondary-foreground max-w-xl mx-auto leading-relaxed">
@@ -81,9 +99,9 @@ const Index = () => {
         </div>
 
         {/* Steps */}
-        <section className="px-6 py-16">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <ScrollReveal>
+        <section className="px-6 py-18">
+          <div className="max-w-3xl mx-auto space-y-14">
+            <ScrollReveal delay={0}>
               <StepCard
                 stepLabel="Paso 1 — Obligatorio"
                 title="Mira este video antes de tu sesion"
@@ -93,7 +111,7 @@ const Index = () => {
               />
             </ScrollReveal>
 
-            <ScrollReveal delay={50}>
+            <ScrollReveal delay={80}>
               <StepCard
                 stepLabel="Paso 2 — Obligatorio"
                 title="Entiende como funciona el proceso"
@@ -103,7 +121,7 @@ const Index = () => {
               />
             </ScrollReveal>
 
-            <ScrollReveal delay={50}>
+            <ScrollReveal delay={80}>
               <StepCard
                 stepLabel="Paso 3 — Recomendado"
                 title="Si ya pasaste por varias estrategias, tienes que escuchar esto!"
@@ -113,8 +131,8 @@ const Index = () => {
               />
             </ScrollReveal>
 
-            <ScrollReveal delay={50}>
-              <div className="card-premium py-12">
+            <ScrollReveal delay={100} className="card-glow-cta">
+              <div className="card-premium card-cta py-14">
                 <ConfirmationStep />
               </div>
             </ScrollReveal>
