@@ -82,6 +82,23 @@ const Index = () => {
               transitionDelay: '200ms',
             }}
           >
+            <StepCard
+              stepLabel="Paso 3 — Recomendado"
+              title="Por qué esta estrategia funciona"
+              description="En este video te explico por qué utilizamos este enfoque, qué lo hace diferente y por qué ha funcionado para traders que buscan resultados más consistentes."
+              loomEmbedId="86207a1829d74bdcb0b5333e8c8a4af2"
+              footnote="Este video responde una de las dudas más comunes antes de entrar a la mentoría."
+            />
+          </div>
+
+          <div
+            className="transition-all duration-300 ease-out"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(10px)',
+              transitionDelay: '300ms',
+            }}
+          >
             <div className="card-premium py-12">
               <ConfirmationStep />
             </div>
