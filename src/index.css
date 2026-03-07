@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    --background: 220 30% 6%;
-    --foreground: 210 20% 92%;
+    --background: 222 40% 5%;
+    --foreground: 210 20% 93%;
 
-    --card: 220 25% 10%;
-    --card-foreground: 210 20% 92%;
+    --card: 222 30% 8%;
+    --card-foreground: 210 20% 93%;
 
-    --popover: 220 25% 10%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 222 30% 8%;
+    --popover-foreground: 210 20% 93%;
 
-    --primary: 215 50% 40%;
-    --primary-foreground: 210 20% 96%;
+    --primary: 215 55% 42%;
+    --primary-foreground: 210 20% 97%;
 
-    --secondary: 220 25% 14%;
+    --secondary: 222 28% 12%;
     --secondary-foreground: 210 20% 85%;
 
-    --muted: 220 20% 16%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 222 22% 14%;
+    --muted-foreground: 215 15% 48%;
 
-    --accent: 215 60% 50%;
-    --accent-foreground: 210 20% 96%;
+    --accent: 215 65% 52%;
+    --accent-foreground: 210 20% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 16%;
-    --input: 220 20% 16%;
-    --ring: 215 50% 40%;
+    --border: 222 20% 14%;
+    --input: 222 20% 14%;
+    --ring: 215 55% 42%;
 
     --radius: 1rem;
 
-    --sidebar-background: 220 30% 6%;
-    --sidebar-foreground: 210 20% 92%;
-    --sidebar-primary: 215 50% 40%;
-    --sidebar-primary-foreground: 210 20% 96%;
-    --sidebar-accent: 220 25% 14%;
-    --sidebar-accent-foreground: 210 20% 92%;
-    --sidebar-border: 220 20% 16%;
-    --sidebar-ring: 215 50% 40%;
+    --sidebar-background: 222 40% 5%;
+    --sidebar-foreground: 210 20% 93%;
+    --sidebar-primary: 215 55% 42%;
+    --sidebar-primary-foreground: 210 20% 97%;
+    --sidebar-accent: 222 28% 12%;
+    --sidebar-accent-foreground: 210 20% 93%;
+    --sidebar-border: 222 20% 14%;
+    --sidebar-ring: 215 55% 42%;
 
     /* Custom tokens */
-    --card-elevated: 220 22% 12%;
-    --progress-bar: 215 60% 50%;
-    --progress-track: 220 20% 16%;
+    --card-elevated: 222 26% 10%;
+    --progress-bar: 215 65% 52%;
+    --progress-track: 222 22% 14%;
     --glass-highlight: 215 80% 70%;
-    --text-subtle: 215 15% 45%;
+    --text-subtle: 215 15% 42%;
+    --glow-primary: 215 70% 45%;
   }
 }
 
@@ -67,18 +68,121 @@
   }
 }
 
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Vignette */
+.vignette::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, hsl(222 40% 3% / 0.6) 100%);
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(4px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
 @layer components {
-  .btn-gloss {
-    @apply relative overflow-hidden rounded-2xl px-8 py-4 font-semibold text-primary-foreground transition-all duration-300;
+  .card-premium {
+    @apply relative rounded-2xl p-8 transition-all duration-300 ease-out;
     background: linear-gradient(
       180deg,
-      hsl(220 30% 18%) 0%,
-      hsl(220 30% 10%) 100%
+      hsl(222 28% 11%) 0%,
+      hsl(222 30% 8%) 100%
+    );
+    border: 1px solid hsl(215 25% 18% / 0.4);
+    box-shadow:
+      0 2px 20px -4px hsl(222 40% 3% / 0.5),
+      0 0 0 0.5px hsl(215 30% 22% / 0.15),
+      inset 0 1px 0 hsl(215 40% 30% / 0.08);
+  }
+
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      180deg,
+      hsl(215 50% 35% / 0.15) 0%,
+      transparent 50%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .card-premium:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 32px -4px hsl(222 40% 3% / 0.6),
+      0 0 0 0.5px hsl(215 30% 24% / 0.2),
+      inset 0 1px 0 hsl(215 40% 32% / 0.12);
+    border-color: hsl(215 25% 22% / 0.5);
+  }
+
+  /* Card glow behind */
+  .card-glow {
+    position: relative;
+  }
+  .card-glow::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    z-index: -1;
+    border-radius: 32px;
+    background: radial-gradient(ellipse at center, hsl(215 70% 40% / 0.06) 0%, transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .card-glow.is-visible::after {
+    opacity: 1;
+  }
+
+  .btn-gloss {
+    @apply relative overflow-hidden rounded-2xl px-9 py-5 font-semibold text-primary-foreground transition-all duration-300 ease-out;
+    background: linear-gradient(
+      180deg,
+      hsl(222 30% 16%) 0%,
+      hsl(222 35% 7%) 100%
     );
     box-shadow:
-      0 4px 20px -4px hsl(220 30% 6% / 0.6),
-      inset 0 1px 0 hsl(215 40% 30% / 0.3);
-    border: 1px solid hsl(220 20% 20%);
+      0 4px 24px -4px hsl(222 40% 4% / 0.7),
+      0 0 0 0.5px hsl(215 30% 22% / 0.3),
+      inset 0 1px 0 hsl(215 40% 32% / 0.2);
+    border: 1px solid hsl(215 25% 20% / 0.4);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
   }
 
   .btn-gloss::before {
@@ -86,77 +190,61 @@
     @apply absolute inset-x-0 top-0 h-1/2 transition-opacity duration-300;
     background: linear-gradient(
       180deg,
-      hsl(215 80% 70% / 0.12) 0%,
+      hsl(215 80% 70% / 0.1) 0%,
       transparent 100%
     );
   }
 
-  .btn-gloss:hover {
-    box-shadow:
-      0 6px 28px -4px hsl(215 60% 50% / 0.25),
-      inset 0 1px 0 hsl(215 40% 35% / 0.4);
-    border-color: hsl(215 30% 25%);
-  }
-
-  .btn-gloss:hover::before {
-    background: linear-gradient(
-      180deg,
-      hsl(215 80% 70% / 0.2) 0%,
-      transparent 100%
-    );
-  }
-
-  .card-premium {
-    @apply rounded-2xl p-8 transition-all duration-200 ease-out;
-    background: hsl(var(--card-elevated));
-    border: 1px solid hsl(215 30% 22% / 0.35);
-    box-shadow: 0 2px 16px -4px hsl(220 30% 4% / 0.4);
-  }
-
-  .card-premium:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 24px -4px hsl(220 30% 4% / 0.5);
-    border-color: hsl(215 30% 26% / 0.45);
-  }
-
-  .btn-gloss {
-    @apply relative overflow-hidden rounded-2xl px-9 py-5 font-semibold text-primary-foreground transition-all duration-200 ease-out;
-    background: linear-gradient(
-      180deg,
-      hsl(220 30% 18%) 0%,
-      hsl(220 30% 9%) 100%
-    );
-    box-shadow:
-      0 4px 20px -4px hsl(220 30% 6% / 0.6),
-      inset 0 1px 0 hsl(215 40% 30% / 0.3);
-    border: 1px solid hsl(215 25% 22% / 0.5);
-    font-size: 1.05rem;
-  }
-
-  .btn-gloss::before {
+  /* Central shine line */
+  .btn-gloss::after {
     content: '';
-    @apply absolute inset-x-0 top-0 h-1/2 transition-opacity duration-200;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
     background: linear-gradient(
-      180deg,
-      hsl(215 80% 70% / 0.12) 0%,
+      90deg,
+      transparent 0%,
+      hsl(215 70% 60% / 0.1) 50%,
       transparent 100%
     );
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 
   .btn-gloss:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 6px 28px -4px hsl(215 60% 50% / 0.2),
-      0 0 20px -6px hsl(215 60% 50% / 0.12),
-      inset 0 1px 0 hsl(215 40% 35% / 0.4);
-    border-color: hsl(215 30% 28% / 0.6);
+      0 8px 32px -4px hsl(215 60% 45% / 0.15),
+      0 0 24px -8px hsl(215 60% 50% / 0.1),
+      0 0 0 0.5px hsl(215 30% 26% / 0.4),
+      inset 0 1px 0 hsl(215 40% 35% / 0.25);
+    border-color: hsl(215 30% 26% / 0.5);
   }
 
   .btn-gloss:hover::before {
     background: linear-gradient(
       180deg,
-      hsl(215 80% 70% / 0.2) 0%,
+      hsl(215 80% 70% / 0.16) 0%,
       transparent 100%
     );
+  }
+
+  /* Divider */
+  .divider-subtle {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(215 25% 20% / 0.4) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Progress bar glow */
+  .progress-glow {
+    box-shadow: 0 0 8px hsl(215 65% 52% / 0.3),
+                0 0 16px hsl(215 65% 52% / 0.1);
   }
 }
