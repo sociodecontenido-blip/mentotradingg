@@ -16,10 +16,13 @@ const ProgressBar = ({ percentage }: { percentage: number }) => {
         </span>
         <span className="text-xs font-semibold text-accent">{percentage}%</span>
       </div>
-      <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+      <div className="h-1.5 w-full rounded-full overflow-hidden" style={{ background: 'hsl(222 22% 12%)' }}>
         <div
-          className="h-full rounded-full bg-accent transition-all duration-900 ease-out"
-          style={{ width: `${width}%` }}
+          className="h-full rounded-full transition-all duration-1000 ease-out progress-glow"
+          style={{
+            width: `${width}%`,
+            background: 'linear-gradient(90deg, hsl(215 65% 42%) 0%, hsl(215 70% 55%) 100%)',
+          }}
         />
       </div>
     </div>
