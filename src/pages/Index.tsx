@@ -123,12 +123,13 @@ const Index = () => {
             </ScrollReveal>
 
             <ScrollReveal delay={80}>
-              <StepCard
+              <WistiaStepCard
                 stepLabel="Paso 3 — Recomendado"
-                title="Si ya pasaste por varias estrategias, tienes que escuchar esto!"
-                description="En este video te explico por qué utilizamos este enfoque, qué lo hace diferente y por qué ha funcionado para traders que buscan resultados más consistentes."
-                loomEmbedId="86207a1829d74bdcb0b5333e8c8a4af2"
-                footnote="Este video responde una de las dudas más comunes antes de entrar a la mentoría."
+                title="Si pasaste por varias estrategias, escucha esto!"
+                description="En este video te explico por qué muchos traders prueban diferentes estrategias sin llegar a ser consistentes, y qué hace realmente la diferencia cuando quieres construir resultados sostenibles."
+                wistiaIframeSrc="https://fast.wistia.net/embed/iframe/8n8iejlngn?web_component=true"
+                iframeTitle="Si pasaste por varias estrategias, escucha esto!"
+                footnote="Este video responde una de las dudas más comunes de quienes ya han intentado avanzar por su cuenta."
               />
             </ScrollReveal>
 
