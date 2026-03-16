@@ -23,7 +23,6 @@ const Index = () => {
     <div className="min-h-screen bg-background noise-overlay vignette relative">
       {/* Cinematic ambient background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Top hero glow */}
         <div
           className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px]"
           style={{
@@ -31,7 +30,6 @@ const Index = () => {
             filter: 'blur(80px)',
           }}
         />
-        {/* Mid-left orb */}
         <div
           className="absolute top-[40%] left-[5%] w-[600px] h-[600px]"
           style={{
@@ -39,7 +37,6 @@ const Index = () => {
             filter: 'blur(100px)',
           }}
         />
-        {/* Mid-right orb */}
         <div
           className="absolute top-[55%] right-[5%] w-[500px] h-[500px]"
           style={{
@@ -47,7 +44,6 @@ const Index = () => {
             filter: 'blur(90px)',
           }}
         />
-        {/* Bottom CTA glow */}
         <div
           className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[800px] h-[500px]"
           style={{
@@ -55,7 +51,6 @@ const Index = () => {
             filter: 'blur(100px)',
           }}
         />
-        {/* Subtle vertical gradient for depth */}
         <div
           className="absolute inset-0"
           style={{
@@ -67,15 +62,14 @@ const Index = () => {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero */}
-        <section className="pt-24 pb-16 px-6">
-          <div className="max-w-3xl mx-auto space-y-14">
+        <section className="pt-16 sm:pt-20 md:pt-24 pb-10 sm:pb-12 md:pb-16 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto space-y-10 md:space-y-14">
             <ScrollReveal>
               <ProgressBar percentage={80} />
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
-              <div className="relative text-center space-y-6 pt-4">
-                {/* Hero halo */}
+              <div className="relative text-center space-y-5 md:space-y-6 pt-2 md:pt-4">
                 <div
                   className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full"
                   style={{
@@ -83,11 +77,11 @@ const Index = () => {
                     filter: 'blur(60px)',
                   }}
                 />
-                <h1 className="relative text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.12]">
-                  Tu llamada esta casi confirmada
+                <h1 className="relative text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.12]">
+                  Tu llamada está casi confirmada
                 </h1>
-                <p className="relative text-lg text-secondary-foreground max-w-xl mx-auto leading-relaxed">
-                  Ya diste el primer paso. Para asegurar tu sesion, completa los siguientes pasos obligatorios.
+                <p className="relative text-base sm:text-lg text-secondary-foreground max-w-xl mx-auto leading-relaxed">
+                  Ya diste el primer paso. Para asegurar tu sesión, completa los siguientes pasos obligatorios.
                 </p>
               </div>
             </ScrollReveal>
@@ -95,28 +89,28 @@ const Index = () => {
         </section>
 
         {/* Divider */}
-        <div className="max-w-lg mx-auto px-6">
+        <div className="max-w-lg mx-auto px-4 sm:px-6">
           <div className="divider-subtle" />
         </div>
 
         {/* Steps */}
-        <section className="px-6 py-18">
-          <div className="max-w-3xl mx-auto space-y-14">
+        <section className="px-4 sm:px-6 py-10 sm:py-14 md:py-18">
+          <div className="max-w-3xl mx-auto space-y-10 sm:space-y-12 md:space-y-14">
             <ScrollReveal delay={0}>
               <StepCard
                 stepLabel="Paso 1 — Obligatorio"
-                title="Mira este video antes de tu sesion"
-                description="Aqui te explico como prepararte y que debes tener listo para aprovechar la llamada."
+                title="Mira este video antes de tu sesión"
+                description="Aquí te explico cómo prepararte y qué debes tener listo para aprovechar la llamada al máximo."
                 loomEmbedId="5245fc2da0df4aeaabead05f4b8ca52c"
-                footnote="No ver este video puede hacer que tu sesion sea cancelada."
+                footnote="No ver este video puede hacer que tu sesión sea cancelada."
               />
             </ScrollReveal>
 
             <ScrollReveal delay={80}>
               <StepCard
                 stepLabel="Paso 2 — Obligatorio"
-                title="Entiende como funciona el proceso"
-                description="En este video te explico exactamente como trabajo y que puedes esperar de este proceso"
+                title="Entiende cómo funciona el proceso"
+                description="En este video te explico exactamente cómo trabajo y qué puedes esperar de este proceso."
                 loomEmbedId="c10ee15dac854dd59e65b6fce068ac62"
                 footnote="Queremos asegurarnos de que esta oportunidad sea adecuada para ti."
               />
@@ -126,7 +120,7 @@ const Index = () => {
               <WistiaStepCard
                 stepLabel="Paso 3 — Recomendado"
                 title="Si pasaste por varias estrategias, escucha esto!"
-                description="En este video te explico por qué muchos traders prueban diferentes estrategias sin llegar a ser consistentes, y qué hace realmente la diferencia cuando quieres construir resultados sostenibles."
+                description="En este video te explico por qué muchos traders prueban diferentes estrategias sin llegar a ser consistentes, y qué hace realmente la diferencia."
                 wistiaIframeSrc="https://fast.wistia.net/embed/iframe/8n8iejlngn?web_component=true"
                 iframeTitle="Si pasaste por varias estrategias, escucha esto!"
                 footnote="Este video responde una de las dudas más comunes de quienes ya han intentado avanzar por su cuenta."
@@ -137,7 +131,7 @@ const Index = () => {
               <WistiaStepCard
                 stepLabel="Paso 4 — Recomendado"
                 title="Por qué el 90% de los traders nunca llega a ser rentable"
-                description="La mayoría no falla por falta de información, sino porque opera con una rutina que no se adapta a su perfil, su tiempo y su forma de ejecutar. En este video explicamos por qué eso impide la consistencia y cómo corregirlo."
+                description="La mayoría no falla por falta de información, sino porque opera con una rutina que no se adapta a su perfil, su tiempo y su forma de ejecutar."
                 wistiaIframeSrc="https://fast.wistia.net/embed/iframe/jibcxulk6x?web_component=true"
                 iframeTitle="Por qué el 90% de los traders nunca llega a ser rentable"
                 footnote="Este video responde una de las razones más comunes por las que muchos traders se quedan estancados."
@@ -145,7 +139,7 @@ const Index = () => {
             </ScrollReveal>
 
             <ScrollReveal delay={100} className="card-glow-cta">
-              <div className="card-premium card-cta py-14">
+              <div className="card-premium card-cta py-10 sm:py-12 md:py-16 px-5 sm:px-8 md:px-10">
                 <ConfirmationStep />
               </div>
             </ScrollReveal>

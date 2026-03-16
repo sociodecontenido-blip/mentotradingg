@@ -3,28 +3,28 @@ const WHATSAPP_URL =
 
 const ConfirmationStep = () => {
   return (
-    <div className="text-center space-y-7">
+    <div className="text-center space-y-6 md:space-y-8">
       <p className="text-xs font-semibold tracking-[0.22em] uppercase text-accent">
         Paso Final
       </p>
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-snug">
-        Confirma tu llamada aqui 👇🏼
+      <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+        Valida tu sesión aquí
       </h2>
-      <p className="text-secondary-foreground max-w-lg mx-auto leading-relaxed">
-        Para poder tener nuestra llamada deber confirmarla
+      <p className="text-secondary-foreground max-w-md mx-auto leading-relaxed text-base md:text-lg">
+        Para mantener tu llamada agendada, confirma tu asistencia por WhatsApp.
       </p>
-      <div className="pt-3">
+      <div className="pt-4 md:pt-6">
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-gloss inline-block text-base tracking-wide"
+          className="btn-gloss inline-block text-base md:text-lg tracking-wide px-12 py-5 md:px-14 md:py-6"
         >
           Confirmar por WhatsApp
         </a>
       </div>
-      <p className="text-sm text-subtle italic">
-        Si no confirmas tu asistencia, tu sesion puede ser liberada para otro aplicante.
+      <p className="text-sm text-subtle italic max-w-sm mx-auto leading-relaxed">
+        Si no confirmas tu asistencia, tu sesión puede ser liberada para otro aplicante.
       </p>
     </div>
   );

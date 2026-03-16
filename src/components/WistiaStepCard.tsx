@@ -9,14 +9,14 @@ interface WistiaStepCardProps {
 
 const WistiaStepCard = ({ stepLabel, title, description, wistiaIframeSrc, iframeTitle, footnote }: WistiaStepCardProps) => {
   return (
-    <div className="card-premium space-y-7 text-center md:text-left">
+    <div className="card-premium space-y-6 md:space-y-7 text-center md:text-left px-5 py-7 sm:px-7 sm:py-8 md:px-8 md:py-9">
       <p className="text-xs font-semibold tracking-[0.22em] uppercase text-accent">
         {stepLabel}
       </p>
-      <h2 className="text-2xl font-bold tracking-tight text-foreground leading-snug">
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground leading-snug">
         {title}
       </h2>
-      <p className="text-secondary-foreground leading-relaxed">
+      <p className="text-secondary-foreground leading-relaxed text-sm sm:text-base">
         {description}
       </p>
       <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: '56.25%' }}>
@@ -38,7 +38,7 @@ const WistiaStepCard = ({ stepLabel, title, description, wistiaIframeSrc, iframe
         />
       </div>
       <div className="divider-subtle" />
-      <p className="text-sm text-subtle italic">
+      <p className="text-sm text-subtle italic leading-relaxed">
         {footnote}
       </p>
     </div>
