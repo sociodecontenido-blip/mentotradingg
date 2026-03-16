@@ -137,7 +137,8 @@ const Index = () => {
                 stepLabel="Paso 4 — Recomendado"
                 title="Por qué el 90% de los traders nunca llega a ser rentable"
                 description="La mayoría no falla por falta de información, sino porque opera con una rutina que no se adapta a su perfil, su tiempo y su forma de ejecutar. En este video explicamos por qué eso impide la consistencia y cómo corregirlo."
-                wistiaMediaId="jibcxulk6x"
+                wistiaIframeSrc="https://fast.wistia.net/embed/iframe/jibcxulk6x?web_component=true"
+                iframeTitle="Por qué el 90% de los traders nunca llega a ser rentable"
                 footnote="Este video responde una de las razones más comunes por las que muchos traders se quedan estancados."
               />
             </ScrollReveal>
