@@ -1,5 +1,6 @@
 import ProgressBar from "@/components/ProgressBar";
 import StepCard from "@/components/StepCard";
+import WistiaStepCard from "@/components/WistiaStepCard";
 import ConfirmationStep from "@/components/ConfirmationStep";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
