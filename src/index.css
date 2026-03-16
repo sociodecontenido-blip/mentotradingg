@@ -224,7 +224,7 @@
   /* Top gloss */
   .btn-gloss::before {
     content: '';
-    @apply absolute inset-x-0 top-0 h-1/2 transition-opacity duration-400;
+    @apply absolute inset-x-0 top-0 h-1/2 transition-opacity duration-300;
     background: linear-gradient(
       180deg,
       hsl(215 80% 72% / 0.12) 0%,
