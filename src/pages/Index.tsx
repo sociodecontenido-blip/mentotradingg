@@ -1,5 +1,6 @@
 import ProgressBar from "@/components/ProgressBar";
 import StepCard from "@/components/StepCard";
+import WistiaStepCard from "@/components/WistiaStepCard";
 import ConfirmationStep from "@/components/ConfirmationStep";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -128,6 +129,16 @@ const Index = () => {
                 description="En este video te explico por qué utilizamos este enfoque, qué lo hace diferente y por qué ha funcionado para traders que buscan resultados más consistentes."
                 loomEmbedId="86207a1829d74bdcb0b5333e8c8a4af2"
                 footnote="Este video responde una de las dudas más comunes antes de entrar a la mentoría."
+              />
+            </ScrollReveal>
+
+            <ScrollReveal delay={80}>
+              <WistiaStepCard
+                stepLabel="Paso 4 — Recomendado"
+                title="Por qué el 90% de los traders nunca llega a ser rentable"
+                description="La mayoría no falla por falta de información, sino porque opera con una rutina que no se adapta a su perfil, su tiempo y su forma de ejecutar. En este video explicamos por qué eso impide la consistencia y cómo corregirlo."
+                wistiaMediaId="jibcxulk6x"
+                footnote="Este video responde una de las razones más comunes por las que muchos traders se quedan estancados."
               />
             </ScrollReveal>
 
